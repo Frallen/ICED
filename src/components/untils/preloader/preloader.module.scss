@@ -1,0 +1,24 @@
+.bg {
+  position: absolute;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 89.3vh;
+  width: 100%;
+  background: #fff;
+  .pre {
+    animation: anim 2s infinite linear;
+  }
+}
+
+@keyframes anim {
+  from {
+    transform: rotate(0deg);
+
+  }
+  to {
+     
+    transform: rotate(359deg);
+  }
+}

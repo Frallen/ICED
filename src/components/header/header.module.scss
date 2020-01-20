@@ -1,0 +1,101 @@
+.bg {
+  background: #fff;
+  padding: 0.7rem 1rem;
+  border-bottom: 2px solid #d6d6d6;
+  .NavBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    @media (max-width: 500px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .logobox{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .logo{}
+    .logoText {
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      color: #4c5454;
+    }
+}
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @media (max-width: 500px) {
+        flex-direction: column;
+        align-items: flex-start;
+        display: none;
+        margin-top: 1rem;
+      }
+
+      .item {
+        margin-left: 10px;
+        list-style-type: none;
+        @media (max-width: 500px) {
+          margin-left: 0;
+          margin-top: 8px;
+        }
+        .button {
+          color: #4c5454;
+          text-decoration: none;
+          display: block;
+        }
+      }
+    }
+    .navigationAct {
+      display: block;
+    }
+    .hamburger {
+      position: absolute;
+      right: 0;
+      display: none;
+      @media (max-width: 500px) {
+        display: block;
+      }
+      cursor: pointer;
+      .mobilebox {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        .mobile,
+        .mobile::after,
+        .mobile::before {
+          background: #4c5454;
+          height: 3px;
+          width: 30px;
+          position: absolute;
+          top: 50%;
+          margin-top: -1px;
+          left: 50%;
+          margin-left: -15px;
+        }
+        .mobile::after,
+        .mobile::before {
+          content: " ";
+          display: block;
+          transition: 0.3s ease-in-out;
+        }
+        .mobile::after {
+          transform: translateY(-10px);
+        }
+        .mobile::before {
+          transform: translateY(10px);
+        }
+        .mobileAct {
+          height: 0;
+        }
+        .mobileAct::after {
+          transform: rotate(45deg);
+        }
+        .mobileAct::before {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+}
