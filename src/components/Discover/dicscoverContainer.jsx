@@ -8,8 +8,12 @@ const Box = props => {
     props.GetDiscover();
   }, []);
 
+  let Get=(data)=>{
+    props.GetDiscover(data);
+  }
+
   if (props.Films.length !== 0) {
-    return <Discvoer {...props}></Discvoer>;
+    return <Discvoer {...props} Get={Get}></Discvoer>;
   } else {
     return <Preloader></Preloader>;
   }

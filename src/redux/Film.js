@@ -26,8 +26,9 @@ const FilmReducer = (state = initialstate, action) => {
 
 export default FilmReducer;
 
-export const GetDiscover = num => async dispatch => {
-  let snap = await GetApi.Discover(num);
+export const GetDiscover = data => async dispatch => {
+  
+  let snap = await GetApi.Discover(data?data:null);
   dispatch({ type: GetFilms, snap });
 };
 

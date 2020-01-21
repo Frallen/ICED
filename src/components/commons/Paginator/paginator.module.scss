@@ -1,0 +1,16 @@
+.box{
+    display: flex;
+    justify-content: center;
+    .ul{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        .item{
+            margin-left: 1rem;
+            list-style-type: none;
+            background: #fff;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+    }
+}

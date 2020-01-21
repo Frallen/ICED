@@ -37,8 +37,8 @@ const Header = () => {
             </NavLink>
           </li>
           <li className={classes.item}>
-            <NavLink to="/find" className={classes.button}>
-              Find
+            <NavLink to="/people" className={classes.button}>
+              People
             </NavLink>
           </li>
           <li className={classes.item}>
