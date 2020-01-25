@@ -6,11 +6,12 @@ import Preloader from "./../untils/preloader/preloader";
 const Box = props => {
   useEffect(() => {
     props.GetDiscover();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  let Get=(data)=>{
+  let Get = data => {
     props.GetDiscover(data);
-  }
+  };
 
   if (props.Films.length !== 0) {
     return <Discvoer {...props} Get={Get}></Discvoer>;
@@ -25,4 +26,4 @@ let mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { GetDiscover })(Box);
+export default connect(mapStateToProps, { GetDiscover,  })(Box);

@@ -2,9 +2,13 @@ import { GetApi } from "../components/api/Api";
 
 const GetFilms = "GetFilms";
 const GetInfo = "GetInfo";
+const GetYouTube = "GetYouTube";
+const ClearAll="ClearAll"
+
 let initialstate = {
   Films: [],
-  Movie: []
+  Movie: [],
+  Video: []
 };
 
 const FilmReducer = (state = initialstate, action) => {
@@ -19,6 +23,17 @@ const FilmReducer = (state = initialstate, action) => {
         ...state,
         Movie: action.snap
       };
+    case GetYouTube:
+      return {
+        ...state,
+        Video: action.snap
+      };
+      case ClearAll:
+        return{
+          ...state,
+          Video:[],
+          Movie:[]
+        }
     default:
       return state;
   }
@@ -27,8 +42,7 @@ const FilmReducer = (state = initialstate, action) => {
 export default FilmReducer;
 
 export const GetDiscover = data => async dispatch => {
-  
-  let snap = await GetApi.Discover(data?data:null);
+  let snap = await GetApi.Discover(data);
   dispatch({ type: GetFilms, snap });
 };
 
@@ -36,3 +50,12 @@ export const GetMovie = id => async dispatch => {
   let snap = await GetApi.Movie(id);
   dispatch({ type: GetInfo, snap });
 };
+
+export const GetVideo = id => async dispatch => {
+  let snap = await GetApi.Video(id);
+  dispatch({ type: GetYouTube, snap });
+};
+
+export const Clear=()=>dispatch=>{
+  dispatch({type:ClearAll})
+}

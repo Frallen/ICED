@@ -151,10 +151,10 @@ export const Genres = ({ input, meta, ...props }) => {
         labelId="demo-simple-select-label"
         id="demo-simple-select"
       >
-        {" "}
+     
         <MenuItem value={undefined}>None</MenuItem>
         {value.map(p => (
-          <MenuItem key={p.id} value={p.value}>
+          <MenuItem key={p.id} value={p.id}>
             {p.value}
           </MenuItem>
         ))}

@@ -7,6 +7,7 @@ import { compose } from "redux";
 import Home from "./components/home/Home";
 import DicscoverContainer from "./components/Discover/dicscoverContainer";
 import MovieContainer from "./components/Movie/movieContainer";
+import PeopleContainer from "./components/People/peopleContainer";
 
 const App = () => {
   return (
@@ -23,7 +24,9 @@ const App = () => {
           <Route path="/movie/:id">
             <MovieContainer></MovieContainer>
           </Route>
-          <Route path="/people/:id"></Route>
+          <Route path="/profile/:id">
+            <PeopleContainer></PeopleContainer>
+          </Route>
           <Redirect to="/"></Redirect>
         </Switch>
       </div>

@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import classes from "./discover.module.scss";
 import { NavLink } from "react-router-dom";
 import { reduxForm, Field } from "redux-form";
-import { DateSelect, Sort, Genres, Search } from "../commons/form/form";
+import { DateSelect, Sort, Genres } from "../commons/form/form";
 import { Paginator } from "../commons/Paginator/paginator";
+import disc from "./../../media/disc.svg";
 
 let Box = props => {
   return (
-    <form onSubmit={props.handleSubmit} className={classes.form}>
+    <form onBlur={props.handleSubmit} className={classes.form}>
       <div className={classes.item}>
         <Field name="Year" component={DateSelect}></Field>
       </div>
@@ -16,9 +17,6 @@ let Box = props => {
       </div>
       <div className={classes.item}>
         <Field name="Genres" component={Genres}></Field>
-      </div>
-      <div className={classes.item}>
-        <Field name="KeyWords" component={Search}></Field>
       </div>
     </form>
   );
@@ -30,34 +28,37 @@ let FilterForm = reduxForm({
 
 const Discvoer = props => {
   const [TotalPages] = useState(props.Films.total_pages);
-  const [currentPage] = useState(props.Films.page);
-
-  //setTotalResults(props.Films.total_results);
-  //setCurrentPage(props.Films.page);
-  //let numPages = Math.floor(TotalResults / 20);
-  let data = [];
 
   let nextPage = num => {
-    data = {
+    let data = {
       num: num
     };
     props.Get(data);
   };
 
-  let onChange = data => {
-    props.Get(data.Sort);
+  let onChange = info => {
+    let data = {
+      Sort: info.Sort,
+      Year: info.Year,
+      Genres: info.Genres
+    };
+    props.Get(data);
   };
   return (
-    <div>
+    <div className={classes.Discvoer}>
       <div className={classes.filter}>
-        <FilterForm {...props} onChange={onChange}></FilterForm>
+        <FilterForm {...props} onSubmit={onChange}></FilterForm>
       </div>
       <div className={classes.box}>
         {props.Films.results.map(p => (
           <div key={p.id} className={classes.item}>
             <div className={classes.boxImg}>
               <img
-                src={"https://image.tmdb.org/t/p/w500/" + p.poster_path}
+                src={
+                  p.poster_path
+                    ? "https://image.tmdb.org/t/p/w500/" + p.poster_path
+                    : disc
+                }
                 alt={p.title}
                 className={classes.img}
               />
@@ -78,8 +79,8 @@ const Discvoer = props => {
       <div>
         {TotalPages > 1 && (
           <Paginator
-            TotalPages={TotalPages}
-            currentPage={currentPage}
+            TotalResults={props.Films.total_results}
+            currentPage={props.Films.page}
             nextPage={nextPage}
           ></Paginator>
         )}
