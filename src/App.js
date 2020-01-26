@@ -8,6 +8,7 @@ import Home from "./components/home/Home";
 import DicscoverContainer from "./components/Discover/dicscoverContainer";
 import MovieContainer from "./components/Movie/movieContainer";
 import PeopleContainer from "./components/People/peopleContainer";
+import TopActorContainer from "./components/TopActor/topActorContainer";
 
 const App = () => {
   return (
@@ -23,6 +24,9 @@ const App = () => {
           </Route>
           <Route path="/movie/:id">
             <MovieContainer></MovieContainer>
+          </Route>
+          <Route path="/people">
+            <TopActorContainer></TopActorContainer>
           </Route>
           <Route path="/profile/:id">
             <PeopleContainer></PeopleContainer>

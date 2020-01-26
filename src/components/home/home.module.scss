@@ -1,0 +1,16 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 89vh;
+  text-align: center;
+  .h1 {
+    font-size: 7rem;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+  }
+  .text {
+    font-size: 2rem;
+    letter-spacing: 5.5px;
+  }
+}

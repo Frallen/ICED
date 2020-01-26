@@ -39,8 +39,9 @@ let People = ({ Actor, InFilms }) => {
       <div className={classes.Bio}>
         <h4 className={classes.title}>Biography</h4>
         <p className={classes.text}>{Actor.biography}</p>
+        
       </div>
-
+<h4 className={classes.Acting}>Acting</h4>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
@@ -54,12 +55,16 @@ let People = ({ Actor, InFilms }) => {
             {InFilms.cast.map(p => (
               <TableRow key={p.id}>
                 <TableCell component="th" scope="p">
-                  <NavLink to={"/movie/" + p.id}>{p.title}</NavLink>
+                  <NavLink to={"/movie/" + p.id} className={classes.link}>
+                    {p.title}
+                  </NavLink>
                 </TableCell>
                 <TableCell align="right">
                   {p.release_date ? p.release_date : "-"}
                 </TableCell>
-                <TableCell align="right">{p.character}</TableCell>
+                <TableCell align="right">
+                  {p.character ? p.character : "-"}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

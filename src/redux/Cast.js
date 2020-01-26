@@ -3,11 +3,13 @@ import { GetApi } from "../components/api/Api";
 const Cast = "Cast";
 const Actor = "Actor";
 const InFilms = "InFilms";
+const People = "People";
 
 let initialState = {
   Cast: [],
   Actor: [],
-  InFilms: []
+  InFilms: [],
+  People: []
 };
 
 let CastReducer = (state = initialState, action) => {
@@ -24,8 +26,13 @@ let CastReducer = (state = initialState, action) => {
       };
     case InFilms:
       return {
-          ...state,
+        ...state,
         InFilms: action.snap
+      };
+    case People:
+      return {
+        ...state,
+        People: action.snap
       };
     default:
       return state;
@@ -47,4 +54,9 @@ export const GetActor = id => async dispatch => {
 export const GetActorInFilms = id => async dispatch => {
   let snap = await GetApi.ActorIN(id);
   dispatch({ type: InFilms, snap });
+};
+
+export const GetTopPeople = num => async dispatch => {
+  let snap = await GetApi.People(num);
+  dispatch({ type: People, snap });
 };

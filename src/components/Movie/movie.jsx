@@ -2,7 +2,7 @@
 import React from "react";
 import classes from "./movie.module.scss";
 import { NavLink } from "react-router-dom";
-
+import disc from "./../../media/disc.svg"
 const Movie = ({ Movie, Video, Cast }) => {
   //мне нужно взять только трейлеры,фильтрую массив и беру толко те массивы в каторых строчка type=Trailer
   let trailer = Video.results.filter(p => p.type === "Trailer");
@@ -13,7 +13,7 @@ const Movie = ({ Movie, Video, Cast }) => {
         <div className={classes.main}>
           <div className={classes.boxImg}>
             <img
-              src={"https://image.tmdb.org/t/p/w500/" + Movie.poster_path}
+              src={Movie.poster_path?"https://image.tmdb.org/t/p/w500/" + Movie.poster_path:disc}
               alt="Poster"
               className={classes.img}
             />

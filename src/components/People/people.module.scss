@@ -44,15 +44,13 @@
     }
   }
 }
-
-.Films {
-    padding: 0 2rem;
-  .body {
-    display: flex;
-    align-items: center;
-    padding-top: 1rem;
-    .link{
-      margin-right: 1rem;
-    }
-  }
+.Acting{
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+.link {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 700;
 }

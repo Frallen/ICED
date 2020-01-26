@@ -54,5 +54,14 @@ export const GetApi = {
         `${baseURL}person/${id}/movie_credits?api_key=${api_key}&language=en-US`
       )
       .then(response => response.data);
+  },
+  People(num) {
+    return axios
+      .get(
+        `${baseURL}person/popular?api_key=${api_key}&language=en-US&page=${
+          num ? num : 1
+        }`
+      )
+      .then(response => response.data);
   }
 };

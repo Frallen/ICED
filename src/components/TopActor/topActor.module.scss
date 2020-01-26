@@ -1,0 +1,29 @@
+.Box {
+  margin: 1rem 0;
+  .main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(148px, 188px));
+    grid-auto-rows: max-content;
+    justify-content: center;
+    grid-gap: 1rem;
+    gap: 2rem 1rem;
+    .item {
+      box-shadow: 0 1px 3px 1px #333;
+      .boxImg {
+        height: 280px;
+        .img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .link {
+        margin: 1rem;
+        display: block;
+      }
+    }
+  }
+  .Paginator {
+    margin: 2rem 0;
+  }
+}

@@ -76,7 +76,7 @@ const Discvoer = props => {
           </div>
         ))}
       </div>
-      <div>
+      <div className={classes.Paginator}>
         {TotalPages > 1 && (
           <Paginator
             TotalResults={props.Films.total_results}
